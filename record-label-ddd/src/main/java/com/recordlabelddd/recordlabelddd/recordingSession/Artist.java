@@ -23,7 +23,7 @@ public class Artist extends Entity<ArtistID> {
     }
 
     public void updateArtistPhone(PhoneNumber phone){
-        this.phoneNumber = phone;
+        this.phoneNumber = Objects.requireNonNull(phone);
     }
 
     public Name name(){

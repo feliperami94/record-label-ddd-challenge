@@ -16,8 +16,8 @@ public class RecordingSession extends AggregateEvent<RecordingSessionID> {
     protected Set<ReservationDay> reservationDays;
     protected Set<Attendant> attendants;
 
-    public RecordingSession(RecordingSessionID entityId, Confirmation confirmation) {
-        super(entityId);
+    public RecordingSession(RecordingSessionID recordingSessionID, Confirmation confirmation) {
+        super(recordingSessionID);
         appendChange(new RecordingSessionAdded(confirmation)).apply();
     }
 
