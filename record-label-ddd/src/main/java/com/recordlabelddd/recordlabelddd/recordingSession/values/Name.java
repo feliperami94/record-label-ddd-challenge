@@ -24,7 +24,7 @@ public class Name implements ValueObject<String> {
             throw new IllegalArgumentException("The Name must have 3 or more characters");
         }
 
-        if(this.value.length() > 50){
+        if(this.value.length() > 30){
             throw new IllegalArgumentException("The Name must have 50 or less characters");
         }
 
