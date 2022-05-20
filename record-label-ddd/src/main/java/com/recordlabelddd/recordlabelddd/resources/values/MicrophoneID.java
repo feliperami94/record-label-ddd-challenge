@@ -1,4 +1,6 @@
 package com.recordlabelddd.recordlabelddd.resources.values;
 
-public class MicrophoneID {
+import co.com.sofka.domain.generic.Identity;
+
+public class MicrophoneID extends Identity {
 }

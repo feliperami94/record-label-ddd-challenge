@@ -1,4 +1,6 @@
 package com.recordlabelddd.recordlabelddd.resources.values;
 
-public class StudioID {
+import co.com.sofka.domain.generic.Identity;
+
+public class StudioID extends Identity {
 }

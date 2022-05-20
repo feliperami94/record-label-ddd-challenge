@@ -1,4 +1,6 @@
 package com.recordlabelddd.recordlabelddd.resources.values;
 
-public class MonitorsID {
+import co.com.sofka.domain.generic.Identity;
+
+public class MonitorsID extends Identity {
 }

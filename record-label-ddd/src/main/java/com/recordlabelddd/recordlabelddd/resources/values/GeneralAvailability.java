@@ -2,9 +2,9 @@ package com.recordlabelddd.recordlabelddd.resources.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
-public class StudioName implements ValueObject<String> {
+public class GeneralAvailability implements ValueObject<Boolean> {
     @Override
-    public String value() {
+    public Boolean value() {
         return null;
     }
 }

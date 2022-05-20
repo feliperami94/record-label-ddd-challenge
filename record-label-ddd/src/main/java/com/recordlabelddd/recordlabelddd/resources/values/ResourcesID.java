@@ -1,4 +1,6 @@
 package com.recordlabelddd.recordlabelddd.resources.values;
 
-public class ResourcesID {
+import co.com.sofka.domain.generic.Identity;
+
+public class ResourcesID extends Identity {
 }
