@@ -1,16 +1,17 @@
 package com.recordlabelddd.recordlabelddd.resources;
 
 import co.com.sofka.domain.generic.AggregateEvent;
-import com.recordlabelddd.recordlabelddd.recordingSession.Artist;
-import com.recordlabelddd.recordlabelddd.recordingSession.Attendant;
-import com.recordlabelddd.recordlabelddd.recordingSession.ReservationDay;
+import co.com.sofka.domain.generic.DomainEvent;
+import com.recordlabelddd.recordlabelddd.recordingSession.*;
 import com.recordlabelddd.recordlabelddd.recordingSession.values.ArtistID;
 import com.recordlabelddd.recordlabelddd.recordingSession.values.AttendantID;
+import com.recordlabelddd.recordlabelddd.recordingSession.values.RecordingSessionID;
 import com.recordlabelddd.recordlabelddd.recordingSession.values.ReservationDayID;
 import com.recordlabelddd.recordlabelddd.resources.events.*;
 import com.recordlabelddd.recordlabelddd.resources.values.*;
 
 import javax.management.monitor.Monitor;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
@@ -26,12 +27,24 @@ public class Resources extends AggregateEvent<ResourcesID> {
         appendChange(new ResourcesAdded(generalAvailability)).apply();
     }
 
+    private Resources(ResourcesID resourcesID){
+        super(resourcesID);
+        subscribe(new ResourcesChange(this));
+    }
+
+    public static Resources from(ResourcesID resourcesID, List<DomainEvent> events){
+        var resources = new Resources(resourcesID);
+        events.forEach(resources::applyEvent);
+        return resources;
+    }
+
     public void updateGeneralAvailability(GeneralAvailability generalAvailability){
         Objects.requireNonNull(generalAvailability);
         appendChange(new GeneralAvailabilityUpdated(generalAvailability)).apply();
     }
 
-    public void addStudio(StudioID studioID, StudioName studioName, Address address){
+
+    public void addStudio( StudioID studioID, StudioName studioName, Address address){
         Objects.requireNonNull(studioID);
         Objects.requireNonNull(studioName);
         Objects.requireNonNull(address);

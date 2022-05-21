@@ -1,18 +1,17 @@
 package com.recordlabelddd.recordlabelddd.resources.commands;
 
 import co.com.sofka.domain.generic.Command;
-import com.recordlabelddd.recordlabelddd.resources.values.Brand;
-import com.recordlabelddd.recordlabelddd.resources.values.MonitorsID;
-import com.recordlabelddd.recordlabelddd.resources.values.Reference;
-import com.recordlabelddd.recordlabelddd.resources.values.SubAvailable;
+import com.recordlabelddd.recordlabelddd.resources.values.*;
 
 public class AddMonitors extends Command {
+    private final ResourcesID resourcesID;
     private final MonitorsID monitorsID;
     private final Brand monitorsBrand;
     private final Reference monitorsReference;
     private final SubAvailable subAvailable;
 
-    public AddMonitors(MonitorsID monitorsID, Brand monitorsBrand, Reference monitorsReference, SubAvailable subAvailable) {
+    public AddMonitors(ResourcesID resourcesID, MonitorsID monitorsID, Brand monitorsBrand, Reference monitorsReference, SubAvailable subAvailable) {
+        this.resourcesID = resourcesID;
         this.monitorsID = monitorsID;
         this.monitorsBrand = monitorsBrand;
         this.monitorsReference = monitorsReference;
@@ -33,5 +32,9 @@ public class AddMonitors extends Command {
 
     public SubAvailable getSubAvailable() {
         return subAvailable;
+    }
+
+    public ResourcesID getResourcesID() {
+        return resourcesID;
     }
 }

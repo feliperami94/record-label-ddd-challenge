@@ -16,7 +16,7 @@ public class MicType implements ValueObject<String> {
             throw new IllegalArgumentException("The MicType can't be empty");
         }
 
-        if(this.value != "Dynamic" || this.value != "Condenser" || this.value != "Ribbon"){
+        if(this.value != "Dynamic" && this.value != "Condenser" && this.value != "Ribbon"){
             throw new IllegalArgumentException("The mic type is not valid");
         }
     }

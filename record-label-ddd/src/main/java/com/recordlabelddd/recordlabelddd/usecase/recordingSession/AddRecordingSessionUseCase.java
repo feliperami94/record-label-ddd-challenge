@@ -5,10 +5,6 @@ import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.business.support.ResponseEvents;
 import com.recordlabelddd.recordlabelddd.recordingSession.RecordingSession;
 import com.recordlabelddd.recordlabelddd.recordingSession.commands.AddRecordingSession;
-import com.recordlabelddd.recordlabelddd.recordingSession.events.RecordingSessionAdded;
-import com.recordlabelddd.recordlabelddd.recordingSession.values.Confirmation;
-
-import java.util.List;
 
 public class AddRecordingSessionUseCase extends UseCase<RequestCommand<AddRecordingSession>, ResponseEvents> {
 
