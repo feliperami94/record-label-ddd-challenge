@@ -94,6 +94,13 @@ public class RecordingSession extends AggregateEvent<RecordingSessionID> {
         appendChange(new AttendantPhoneUpdated(attendantID, attendantPhone)).apply();
     }
 
+    public void notifyReservation(String notification){
+        Objects.requireNonNull(notification);
+        appendChange(new ReservationNotified(notification)).apply();
+    }
+
+
+
     protected Optional<Artist> getArtistByID(ArtistID artistID){
         return artists()
                 .stream()

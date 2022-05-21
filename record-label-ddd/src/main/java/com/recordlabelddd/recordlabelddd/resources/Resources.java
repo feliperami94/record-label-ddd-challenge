@@ -115,6 +115,13 @@ public class Resources extends AggregateEvent<ResourcesID> {
         appendChange(new SubAvailableUpdated(monitorsID, subAvailable)).apply();
     }
 
+    public void notifyChangeInAvailability(String notificationMessage){
+        Objects.requireNonNull(notificationMessage);
+        appendChange(new AvailabilityChangeNotified(notificationMessage)).apply();
+    }
+
+
+
 
     protected Optional<Studio> getStudioByID(StudioID studioID){
         return studios()
